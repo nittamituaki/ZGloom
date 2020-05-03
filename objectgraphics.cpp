@@ -561,7 +561,7 @@ ObjectGraphics::ObjectGraphics()
 	objectlogic[    OLT_TERRA].blood	= 0xf00	 ;
 	objectlogic[    OLT_GHOUL].blood	= 0x80f0 ;
 	objectlogic[  OLT_PHANTOM].blood	= 0xf00	 ;
-	objectlogic[    OLT_DEMON].blood	= 0xf00	 ;
+	objectlogic[    OLT_DEMON].blood	= 0xff0	 ;
 	objectlogic[  OLT_WEAPON1].blood	= 0	     ;
 	objectlogic[  OLT_WEAPON2].blood	= 0	     ;
 	objectlogic[  OLT_WEAPON3].blood	= 0	     ;
