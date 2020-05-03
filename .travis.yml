@@ -10,11 +10,5 @@ matrix:
       - libxmp-dev
     script:
     - make
-  - name: macOS
-    #compiler: clang
-    os: osx
-    osx_image: xcode10.2
-    before_script:
-    - brew install sdl2 sdl2_mixer libxmp
-    script:
-    - make
+    deploy:
+      skip_cleanup: true
