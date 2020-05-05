@@ -11,9 +11,11 @@ matrix:
     script:
     - make
     deploy:
-      provider: pages
-      repo: nittamituaki/ZGloom
+      provider: releases
       github-token: $GITHUB_ACCESS_TOKEN
+      file_glob: true
+      file: directory/*
       skip_cleanup: true
+      overwrite: true
       on:
         branch: master
