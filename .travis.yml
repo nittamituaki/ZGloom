@@ -14,7 +14,9 @@ matrix:
       provider: "releases"
       api_key:
         secure: "RthRwNmsz07bbaD9lvCe3ah1pxxUQJrFnSaOhiAuih18tIqbwhsWxojhnE/3XiGFuuLD5ZMGSRtH0J0PLTGKX+KT4kiqb+hlwrYCLwwlsOzflVAPVw/euUGFR9Y1zmEycGWS96LpslEuFGbVCXYd3FN6YWQ7yhKMMfoyzpgqS+TFTT6NQUYX+SdKniAEkYNNpfNUCn757ZvSLSZQh4Mv/XfO9+bqceXU/iMQGvJPXv5EVZjjn7brPsJ6qETfkpG8jYfyjpsKfEPHwvkDj8qlfK/PrdFPonW9sH2LHc4T+tsf3hforxMUobL9FUpIJhU4VKUNahvdFNUqzCKs9lWBFUUzQsi8AxM4rRuYJJ8sBiIxyOtAJk4V2qEQPXrksDm1R/obVwubQdh5v8+HWF9fIQyLXj3Pm8VLQrixf+YNB7JQKcdAyAJGwkVdn1ZCoZU3cTOcQp6AlEwDkCYrH+f3XF8VRrlOVYtuq81IDcshLIUZgTqcNz9jZGCIbv3ii2R7BnnM+IQcu4s8yH0WfO413jhtWDu7Q7Iegl8BTXW/VG0nlLha2YNciumwkOWP8GFsxOGudSnVvWmynWWUzqug0U7AGbNkGT0sGj/mefjzgCWKXw/dDwNmzLIjrBN1qAcO8vjAlHNbLmLdYm/ww5sdNZvT5PJA/Zfs8PtV4S2APYE="
+      file: "zgloom.exe"
       on:
         repo: nittamituaki/ZGloom
         branch: master
       skip_cleanup: true
+      overwrite: true
