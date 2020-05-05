@@ -11,7 +11,8 @@ matrix:
     script:
     - make
     deploy:
-      provider: "releases"
+      provider: pages
+      repo: nittamituaki/ZGloom
       api_key:
         secure: "..."
       skip_cleanup: true
