@@ -13,8 +13,7 @@ matrix:
     deploy:
       provider: pages
       repo: nittamituaki/ZGloom
-      api_key:
-        secure: "..."
+      github-token: $GITHUB_ACCESS_TOKEN
       skip_cleanup: true
       on:
         branch: master
