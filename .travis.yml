@@ -11,9 +11,12 @@ matrix:
     script:
     - make
     deploy:
-      provider: pages
-      repo: nittamituaki/ZGloom
-      github-token: $GITHUB_ACCESS_TOKEN
-      skip_cleanup: true
+      provider: releases
+      api_key:
+        secure: MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA36dE8PvyWWfWmVuq1q2r jIEfzr+TMou82fmOE2bCaOuZvfgtI10kTO02kYIGoWqqhMrfHhxEdQKjZeMQOjSC aikNGYlMH4A/Ryw3WmaQN1So3aI9Z11bxtBXJvn/UNFngAul/4KJEs3xqK1RVZcm 7Bq0GJv3x8Qq1NS6+1I/vfDyW0l1IKHLoUDMRVsgDRxf9E9i76sWK20DIOnmPlGH XodHbusb7uPb5ZiYz7sXVbGCDewSqYO6X6gf8L4/KvIgjQfhEUgXvLsgMs3ablxx 8aYOSnLsqL8ywK54XPNrPLTrklK8mw/Ws+1UYH+L2At5HJzjjaJwL+FvjmEyV564 HeXrNqyv5Lj6ZKt+DOwq/UFeVseldo1DRkIvmqBzEYfNQR06520nN/ylXWjmkQFa 3sGnrA630aZAmsIaEeievLheGs8mrYKNC+4ptq5xDky0Cmby3nKaFc+0H+NZJ4Fr sI7+XK1HA3weZ6uXG4F6QMkrWUcpau3f1G/sJ/Aca0vXNXBVZSMM/Ye47E+TFH2+ gm6JcDItW/dyQaLLtdzxCd3nhb4QVzRQJi7m1pSeJe0hyVWUp0VMxQ35/5Eh/QL2 MpJt3K6ppkmQDCY8zLUAmbD56fNEromCZXZKnd6F4LVsKoAjt8QeuJ5AhlGnoRXY PvZ19DHsPoolFtA8esZaTFECAwEAAQ==
+      file:
+        - build/zgloom.exe
       on:
+        repo: nittamituaki/ZGloom
         branch: master
+      skip_cleanup: true
