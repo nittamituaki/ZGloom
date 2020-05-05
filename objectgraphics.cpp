@@ -482,7 +482,7 @@ ObjectGraphics::ObjectGraphics()
 	objectlogic[OLT_DRAGON].hitpoints = 250;
 	objectlogic[OLT_BOUNCY].hitpoints = 0;
 	objectlogic[OLT_MARINE].hitpoints = 5;
-	objectlogic[OLT_BALDY].hitpoints = 10;
+	objectlogic[OLT_BALDY].hitpoints = 35;
 	objectlogic[OLT_TERRA].hitpoints = 35;
 	objectlogic[OLT_GHOUL].hitpoints = 5;
 	objectlogic[OLT_PHANTOM].hitpoints = 10;
