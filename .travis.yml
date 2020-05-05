@@ -10,17 +10,10 @@ matrix:
       - libxmp-dev
     script:
     - make
-    before_deploy:
-    - "rm -f .env"
-    - "zip -qr9 ${TRAVIS_TAG}-release.zip . -x \"*.git*\" -x \"*node_modules*\" -x .travis.yml -x .gitignore -x package-lock.json"
-    - "zip -qr9 ${TRAVIS_TAG}-release-bundled.zip . -x \"*.git*\" -x .travis.yml -x .gitignore -x package-lock.json"
     deploy:
       provider: "releases"
       api_key:
         secure: "..."
-      file:
-        - "${TRAVIS_TAG}-release.zip"
-        - "${TRAVIS_TAG}-release-bundled.zip"
       skip_cleanup: true
       on:
         branch: master
