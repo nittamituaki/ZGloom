@@ -20,5 +20,5 @@ jobs:
       run: make
     - uses: actions/upload-artifact@v2
       with:
-         name: my-artifact
-         path: path/to/artifact/ # or path/to/artifact
+         name: ZGloom
+         path: serverless/build
