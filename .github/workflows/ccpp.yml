@@ -12,12 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+    - run: mkdir -p path/to/artifact
     - name: apt-get
       run: sudo apt-get update && sudo apt-get install libsdl2-dev libsdl2-mixer-dev libxmp-dev
     - name: build
       run: make
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v2
       with:
-      name: my-artifact
-      path: path/to/artifact/ # or path/to/artifact
+         name: my-artifact
+         path: path/to/artifact/zgloom.exe
