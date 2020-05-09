@@ -21,4 +21,4 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
          name: my-artifact
-         path: path/to/artifact/zgloom.exe
+         path: path/to/artifact/ # or path/to/artifact
