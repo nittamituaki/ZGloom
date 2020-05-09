@@ -17,4 +17,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install libsdl2-dev libsdl2-mixer-dev libxmp-dev
     - name: build
       run: make
-
+    - uses: actions/upload-artifact@v1
+      with:
+      name: my-artifact
+      path: path/to/artifact/ # or path/to/artifact
