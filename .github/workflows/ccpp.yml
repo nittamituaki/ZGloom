@@ -20,4 +20,5 @@ jobs:
       run: make
     - uses: actions/upload-artifact@v2
       with:
-         name: ZGloom
+        name: ZGloom
+        path: artifact/ZGloom.exe
