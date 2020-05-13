@@ -7,18 +7,95 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
+ setup-release:
+    name: Setup release
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@v2
-    - run: mkdir -p path/to/artifact
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+
+    - name: Get url to upload to release from output
+      env:
+        url: ${{ steps.create_release.outputs.upload_url }}
+      run: |
+        mkdir artifact
+        echo $url > artifact/url.txt
+    - name: Upload artifact to share url with other jobs
+      uses: actions/upload-artifact@v1
+      with:
+        name: artifact
+        path: artifact/url.txt
+
+ release-code:
+    name: Release Source Code
+    needs: setup-release
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifact to get url to upload to release
+      uses: actions/download-artifact@v1
+      with:
+        name: artifact
+
+    - name: Get url to upload to release from artifact
+      id: get_url
+      run: |
+        url=$(cat artifact/url.txt)
+        echo "##[set-output name=upload_url;]$url"
+
+    - name: Pack source code in zip file
+      run: |
+        mkdir dist
+        ls -la
+        zip -j -r release dist
+    - name: Upload release asset
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.get_url.outputs.upload_url }}
+        asset_path: release.zip
+        asset_name: source.zip
+        asset_content_type: application/zip
+
+ release-pkg:
+    name: Release package
+    needs: setup-release
+    runs-on: ubuntu-latest
+
+    steps:
     - name: apt-get
       run: sudo apt-get update && sudo apt-get install libsdl2-dev libsdl2-mixer-dev libxmp-dev
-    - name: build
-      run: make
-    - uses: actions/upload-artifact@v2
+
+    - name: Build
+      run: |
+        make
+        mkdir dist
+        cp ZGloom.exe dist/
+        zip -j -r release dist
+    - name: Download artifact to get url to upload to release
+      uses: actions/download-artifact@v1
       with:
-        name: ZGloom
-        path: artifact/ZGloom.exe
+        name: artifact
+
+    - name: Get url to upload to release from artifact
+      id: get_url
+      run: |
+        url=$(cat artifact/url.txt)
+        echo "##[set-output name=upload_url;]$url"
+    - name: Upload release asset
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.get_url.outputs.upload_url }}
+        asset_path: release.zip
+        asset_name: release.zip
+        asset_content_type: application/zip
