@@ -1,0 +1,20 @@
+language: cpp
+dist: bionic
+matrix:
+  include:
+  - name: Linux
+    addons:
+      apt_packages:
+      - libsdl2-dev
+      - libsdl2-mixer-dev
+      - libxmp-dev
+    script:
+    - make
+    deploy:
+      provider: pages
+      repo: nittamituaki/ZGloom
+      github-token: $GITHUB_ACCESS_TOKEN
+      skip_cleanup: true
+      overwrite: true
+      on:
+        branch: master

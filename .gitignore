@@ -1,0 +1,9 @@
+*.o
+ZGloom
+Debug/*
+Release/*
+ZGloom.opensdf
+ZGloom.sdf
+ZGloom.v12.suo
+ZGloom.vcxproj.filters
+ZGloom.vcxproj.user
